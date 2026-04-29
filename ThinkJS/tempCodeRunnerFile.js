@@ -1,0 +1,1 @@
+.map((product) => product.productName);
