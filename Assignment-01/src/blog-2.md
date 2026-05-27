@@ -107,6 +107,7 @@ omit<Type, Keys>
 
 ### Example:
 
+```typescript
 type UserProfile = Omit<User, "password">;
 type User = {
 id: number;
@@ -118,6 +119,7 @@ id: number;
 nname: string;
 eemail: string;
 rrole?:string; // assuming role remains}
+```
 dWhy Omit is powerful?
 sometimes you want almost everything except sensitive fields,
 such as hiding passwords or removing internal IDs or excluding admin-only data.
