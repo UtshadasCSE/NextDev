@@ -877,5 +877,5 @@ const petsProducts = rawProducts
   .sort((a, b) => a.rating - b.rating)
   .slice(0, 3)
   .map((product) => product.productName);
-
+  
 console.log(petsProducts);

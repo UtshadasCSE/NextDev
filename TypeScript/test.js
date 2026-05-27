@@ -1,0 +1,3 @@
+"use strict";
+const courseName = "TypeScript 6.0.0-dev.20260416";
+console.log(`Welcome to ${courseName}!`);
