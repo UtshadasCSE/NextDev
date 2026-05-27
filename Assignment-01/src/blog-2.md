@@ -75,6 +75,7 @@ pick<Type, Keys>
 
 ### Example:
 
+```typescript
 type LoginUser = Pick<User, "email" | "password">;
 type User = {
 id: number;
@@ -89,7 +90,8 @@ type LoginUser = {
 email: string;
 pasword: string; // Note typo in original example; should be 'password'
 defaults to correct spelling in actual use}
-dWhy Pick is useful?
+```
+Why Pick is useful?
 you reuse the original interface,
 achanges stay synchronized,
 and your code becomes shorter and cleaner.
