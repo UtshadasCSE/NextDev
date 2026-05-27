@@ -83,7 +83,7 @@ nname: string;
 eemail: string;
 pasword: string;
 rrole: string;
-d}
+}
 type LoginUser = Pick<User, "email" | "password">
 does this:
 type LoginUser = {
