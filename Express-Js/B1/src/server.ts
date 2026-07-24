@@ -1,22 +1,16 @@
-import express, {
-  type Application,
-  type Request,
-  type Response,
-} from "express";
-const app: Application = express();
-const port = 3000;
+import app from "./app.js";
+import config from "./config/index.js";
+import { initDB } from "./db/index.js";
 
-app.get("/", (req: Request, res: Response): void => {
-  res.status(200).json({
-    message: "Hello World",
-    author: "Express",
+const main = () => {
+  /*=============
+  Execute database initialization when the application starts
+  ===============*/
+  initDB();
+
+  app.listen(config.port, () => {
+    console.log(`🚀 Example app listening on port ${config.port}`);
   });
-});
+};
 
-app.use(express.json());
-app.post("/", async (req: Request, res: Response) => {
-  console.log(req.body);
-});
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+main();
