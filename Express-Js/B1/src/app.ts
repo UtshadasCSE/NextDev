@@ -14,6 +14,7 @@ const app: Application = express();
 /*=======================
 MIDDLEWARES Parse incoming JSON, Plain text and form-urlencoded data
 =========================*/
+app.use(express.text());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
