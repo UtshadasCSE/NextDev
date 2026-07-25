@@ -4,7 +4,6 @@ import express, {
   type Response,
 } from "express";
 
-import { pool } from "./db/index.js";
 import { userRoute } from "./modules/user/user.route.js";
 
 /*=================
