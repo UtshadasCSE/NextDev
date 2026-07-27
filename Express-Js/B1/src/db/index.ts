@@ -13,7 +13,9 @@ Initialize Database
 ======================*/
 export const initDB = async () => {
   try {
-    // Create users table only if it doesn't already exist
+    /*===========================
+    Create users table only if it doesn't already exist
+    ===========================*/
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -31,8 +33,25 @@ export const initDB = async () => {
       );
     `);
 
-    console.log("✅ Table created successfully");
+    /*===========================
+    Create users profile table only if it doesn't already exist
+    ===========================*/
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS profiles (
+      id SERIAL PRIMARY KEY,
+      user_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+      bio TEXT,
+      address TEXT,
+      phone VARCHAR(15),
+      gender VARCHAR(10),
+
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
+      
+      )
+      `);
+    console.log("✅ Database connected successfully");
   } catch (error) {
-    console.error("❌ Error creating table:", error);
+    console.error("❌ Failed to connecting the database:", error);
   }
 };

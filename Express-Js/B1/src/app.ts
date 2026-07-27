@@ -5,6 +5,7 @@ import express, {
 } from "express";
 
 import { userRoute } from "./modules/user/user.route.js";
+import { profileRoute } from "./modules/profile/profile.route.js";
 
 /*=================
 Create Express application
@@ -31,5 +32,10 @@ app.get("/", (req: Request, res: Response): void => {
 Create User , Get all user Route, Get, Update and Delete single User via ID
 =======================*/
 app.use("/api/users", userRoute);
+
+/*=====================
+Profile Route
+=======================*/
+app.use("/api/profiles", profileRoute);
 
 export default app;
